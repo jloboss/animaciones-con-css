@@ -1,0 +1,606 @@
+/* Estilos en común*/
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+#grid-container {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-areas:
+    "header"
+    "nav"
+    "main"
+    "footer";
+  height: 100vh;
+}
+
+header {
+  background-color: #333;
+  color: whitesmoke;
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.3rem;
+}
+
+nav {
+  background-color: chocolate;
+  grid-area: nav;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+
+main {
+  background-color: white;
+  grid-area: main;
+  overflow: auto;
+}
+
+footer {
+  background-color: #333;
+  color: whitesmoke;
+  padding: 10px;
+  text-align: center;
+  grid-area: footer;
+}
+
+img {
+  width: 100%;
+  border-radius: 8%;
+}
+
+button {
+  padding: 0.4em 1.4em;
+  margin: 0.4em auto;
+  background-color: rgb(1, 1, 145);
+  color: white;
+  border-radius: 15%;
+}
+
+button:hover {
+  background-color: rgb(19, 3, 240);
+  cursor: pointer;
+}
+
+.text_ordenar {
+  font-size: 1em;
+  margin: 5px;
+  color: black;
+}
+
+.var_precio {
+  background-color: white;
+  width: 80%;
+  padding: 0.5em;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-container img {
+  width: 80px;
+}
+
+.logo-container p {
+  font-size: 1.8em;
+  font-weight: 600;
+  font-family: fantasy;
+}
+
+.menu-hamburgesa {
+  font-size: 2em;
+}
+
+.menu {
+  display: none;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1em;
+  flex-basis: calc(100% - 20vw);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  padding: 20px;
+  margin: 10px;
+  border: 1px solid chocolate;
+  border-radius: 15px;
+  box-shadow: 15px 15px 10px -10px;
+}
+
+.card p {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 10px;
+}
+.card spam {
+  color: #333;
+}
+
+.paginador {
+  grid-area: paginador;
+  display: inline-block;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 8px;
+}
+
+.paginador a {
+  color: chocolate;
+  padding: 10px 8px;
+  text-decoration: none;
+  border: 1px solid #333;
+}
+
+.logo_rss {
+  font-size: small;
+  padding-bottom: 10px;
+}
+.logo_rss a {
+  color: white;
+}
+
+/* Efecto redes sociales*/
+ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  position: absolute;
+  top: 97%;
+  left: 9%;
+  transform: translate(-50%, -50%);
+}
+
+ul li {
+  list-style: none;
+  margin: 0 5px;
+}
+
+ul li a {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 40px;
+  background: #333;
+  border-radius: 50%;
+  font-size: 10px;
+  color: #666;
+  transition: 0.5s;
+}
+
+ul li a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #ffee10;
+  transition: 0.5s;
+  transform: scale(0.9);
+  z-index: -1;
+}
+
+ul li a:hover::before {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #ffee10;
+}
+
+ul li a:hover {
+  color: #ffee10;
+  box-shadow: 0 0 5px #ffee10;
+  text-shadow: 0 0 5px #ffee10;
+}
+/* Fin Efecto redes sociales*/
+
+/* Efecto agrandar imagen galeria - imagenes blanco y negro color*/
+
+img {
+  margin: auto;
+  cursor: pointer;
+  filter: grayscale(100%);
+  transition: filter 1s ease;
+}
+
+img:hover {
+  filter: grayscale(0%);
+}
+/* Efecto agrandar imagen galeria - imagenes blanco y negro color*/
+
+/* Efecto cambio colores titulo*/
+.tit_mov {
+  font-size: 90px;
+  background: linear-gradient(#e0dfdf, #ffc710);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  animation: text 5s linear infinite;
+}
+
+@keyframes text {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+/* Fin Efecto cambio colores titulo*/
+
+/* Media Query para Tablet */
+@media (min-width: 575px) and (max-width: 992px) {
+  #grid-container {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      "header header"
+      "nav nav"
+      "main main"
+      "footer footer";
+    min-height: 100vh;
+  }
+
+  nav {
+    background-color: chocolate;
+    grid-area: nav;
+    display: flex;
+    justify-content: space-around;
+    gap: 1em;
+    align-items: end;
+    padding: 15px;
+  }
+
+  .menu-hamburgesa {
+    display: none;
+  }
+
+  .menu {
+    display: flex;
+    gap: 2em;
+  }
+
+  .menu a {
+    text-decoration: none;
+    color: white;
+  }
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .card {
+    flex-basis: calc(30%);
+  }
+
+  /* Efecto Menu*/
+  .menu a {
+    width: 100px;
+    height: 40px;
+    background: chocolate;
+    border-radius: 80px 20px;
+    transition: width 2s;
+  }
+
+  #inicio {
+    transition-timing-function: ease;
+  }
+
+  .menu a:hover {
+    width: 190px;
+    background-color: #ffee10;
+    padding-top: 12px;
+    text-align: center;
+    color: chocolate;
+    font-family: fantasy;
+  }
+  /* Fin efecto Menu*/
+  /* Efecto cambio colores titulo*/
+  .tit_mov {
+    font-size: 90px;
+    background: linear-gradient(#e0dfdf, #ffc710);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    animation: text 5s linear infinite;
+  }
+
+  @keyframes text {
+    0% {
+      filter: hue-rotate(0deg);
+    }
+    100% {
+      filter: hue-rotate(360deg);
+    }
+  }
+  /* Fin Efecto cambio colores titulo*/
+
+  /* Efecto agrandar imagen galeria - imagenes blanco y negro color*/
+
+  img {
+    transition: 4s;
+    margin: auto;
+    cursor: pointer;
+    filter: grayscale(100%);
+    transition: filter 1s ease;
+  }
+
+  img:hover {
+    transform: scale(2);
+    transition: 4s;
+    filter: grayscale(0%);
+  }
+  /* Efecto agrandar imagen galeria - imagenes blanco y negro color*/
+
+  /* Efecto redes sociales*/
+  ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    position: absolute;
+    top: 97%;
+    left: 7%;
+    transform: translate(-50%, -50%);
+  }
+
+  ul li {
+    list-style: none;
+    margin: 0 5px;
+  }
+
+  ul li a {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 40px;
+    background: #333;
+    border-radius: 50%;
+    font-size: 10px;
+    color: #666;
+    transition: 0.5s;
+  }
+
+  ul li a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #ffee10;
+    transition: 0.5s;
+    transform: scale(0.9);
+    z-index: -1;
+  }
+
+  ul li a:hover::before {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #ffee10;
+  }
+
+  ul li a:hover {
+    color: #ffee10;
+    box-shadow: 0 0 5px #ffee10;
+    text-shadow: 0 0 5px #ffee10;
+  }
+  /* Fin Efecto redes sociales*/
+}
+
+/* Media Query para Desktop */
+@media (min-width: 992px) {
+  #grid-container {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      "header header"
+      "nav main"
+      "footer footer";
+    min-height: 100vh;
+  }
+
+  header {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .tit_mov {
+    font-family: fantasy;
+  }
+
+  .logo-container {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-container img {
+    width: 80px;
+  }
+
+  .logo-container p {
+    font-size: 1.7em;
+    font-weight: 600;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+      sans-serif;
+  }
+
+  .menu-hamburgesa {
+    display: none;
+  }
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 1em;
+    border: 1px solid chocolate;
+  }
+
+  .menu {
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5em;
+    padding-top: 35px;
+  }
+
+  .menu a {
+    text-decoration: none;
+    color: white;
+  }
+
+  /* Efecto Menu*/
+  .menu a {
+    width: 100px;
+    height: 40px;
+    background: chocolate;
+    border-radius: 80px 20px;
+    transition: width 2s;
+  }
+
+  #inicio {
+    transition-timing-function: ease;
+  }
+
+  .menu a:hover {
+    width: 190px;
+    background-color: #ffee10;
+    padding-top: 12px;
+    text-align: center;
+    color: chocolate;
+    font-family: fantasy;
+  }
+  /* Fin efecto Menu*/
+
+  .card {
+    flex-basis: calc(23.33% - 5vw);
+  }
+
+  /* Efecto redes sociales*/
+  ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    position: absolute;
+    top: 97%;
+    left: 7%;
+    transform: translate(-50%, -50%);
+  }
+
+  ul li {
+    list-style: none;
+    margin: 0 5px;
+  }
+
+  ul li a {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 40px;
+    background: #333;
+    border-radius: 50%;
+    font-size: 10px;
+    color: #666;
+    transition: 0.5s;
+  }
+
+  ul li a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #ffee10;
+    transition: 0.5s;
+    transform: scale(0.9);
+    z-index: -1;
+  }
+
+  ul li a:hover::before {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #ffee10;
+  }
+
+  ul li a:hover {
+    color: #ffee10;
+    box-shadow: 0 0 5px #ffee10;
+    text-shadow: 0 0 5px #ffee10;
+  }
+  /* Fin Efecto redes sociales*/
+
+  /* Efecto cambio colores titulo*/
+  .tit_mov {
+    font-size: 90px;
+    background: linear-gradient(#e0dfdf, #ffee10);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    animation: text 5s linear infinite;
+  }
+
+  @keyframes text {
+    0% {
+      filter: hue-rotate(0deg);
+    }
+    100% {
+      filter: hue-rotate(360deg);
+    }
+  }
+  /* Fin Efecto cambio colores titulo*/
+
+  /* Efecto agrandar imagen galeria - imagenes blanco y negro color*/
+
+  img {
+    transition: 4s;
+    margin: auto;
+    cursor: pointer;
+    filter: grayscale(100%);
+    transition: filter 1s ease;
+  }
+
+  img:hover {
+    transform: scale(2);
+    transition: 4s;
+    filter: grayscale(0%);
+  }
+  /* Efecto agrandar imagen galeria - imagenes blanco y negro color*/
+}
